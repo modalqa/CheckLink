@@ -1,0 +1,19 @@
+name: Scheduled Task
+
+on:
+  schedule:
+    - cron: '10 * * * *' # At 00:00 UTC every day (adjust the cron schedule as needed)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test
